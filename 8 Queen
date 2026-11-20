@@ -1,0 +1,35 @@
+N = 8
+board = [[0] * N for i in range(N)]
+def safe(r, c):
+     for i in range(c):
+        if board[r][i] == 1:
+            return False
+       i = r
+       j = c
+    while i >= 0 and j >= 0:
+        if board[i][j] == 1:
+            return False
+        i -= 1
+        j -= 1
+        i = r
+    j = c
+    while i < N and j >= 0:
+        if board[i][j] == 1:
+            return False
+        i += 1
+        j -= 1
+       return True
+def queen(c):
+       if c == N:
+        return True
+       for r in range(N):
+        if safe(r, c):
+            board[r][c] = 1
+            if queen(c + 1):
+                return True
+  board[r][c] = 0
+  return False
+queen(0)
+print("Solution:\n")
+for i in board:
+    print(i)
