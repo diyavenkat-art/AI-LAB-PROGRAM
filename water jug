@@ -1,0 +1,22 @@
+jug1 = 0
+jug2 = 0
+
+capacity1 = 4
+capacity2 = 3
+goal = 2
+jug2 = capacity2
+transfer = min(jug2, capacity1 - jug1)
+jug1 += transfer
+jug2 -= transfer
+jug2 = capacity2
+transfer = min(jug2, capacity1 - jug1)
+jug1 += transfer
+jug2 -= transfer
+jug1 = 0
+transfer = min(jug2, capacity1 - jug1)
+jug1 += transfer
+jug2 -= transfer
+if jug1 == goal:
+    print("Goal Achieved! Jug1 contains", goal, "liters.")
+else:
+    print("Goal Not Achieved")
